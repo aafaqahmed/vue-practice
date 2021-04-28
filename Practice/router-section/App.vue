@@ -1,21 +1,23 @@
 <template>
+    <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-xs-12 col-sm-8 col-md-6">
-              <app-header class="text-right"></app-header>
-              <router-view></router-view>
-              <hr>
-              <app-footer></app-footer>
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                <h1>Routing</h1>
+              <app-header></app-header>
+              <transition name="slide" mode="out-in">
+                <router-view></router-view>
+              </transition>
+
             </div>
         </div>
+    </div>
 </template>
 
 <script>
-import Header from './common/Header.vue'
-import Footer from './common/Footer.vue'
+import Header from './components/Header.vue'
     export default {
       components:{
         'app-header':Header,
-        'app-footer':Footer,
       }
     }
 </script>
@@ -32,6 +34,7 @@ import Footer from './common/Footer.vue'
 }
 .slide-leave{
   animation: slide-in 1s ease-out forwards;
+
 }
 
 @keyframes slide-out {
@@ -51,4 +54,7 @@ import Footer from './common/Footer.vue'
     transform: translateY(0px);
   }
 }
+</style>
+
+<style>
 </style>
